@@ -83,7 +83,7 @@
                                 <a href="#">Posts</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="#">Categories</a>
+                                <a href="{{ route('categories.create') }}">Categories</a>
                             </li>
                         </ul>
                     </div>

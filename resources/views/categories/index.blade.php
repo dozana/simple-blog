@@ -21,7 +21,10 @@
                         <tr>
                             <td>{{ $category->title }}</td>
                             <td>{{ $category->created_at }}</td>
-                            <td class="text-center">...</td>
+                            <td class="text-center">
+                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-sm">Edit</a>
+
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

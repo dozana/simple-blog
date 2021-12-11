@@ -20,7 +20,8 @@
                     <input type="text" id="title" name="title" class="form-control">
                 </div>
                 <div class="form-group mb-0">
-                    <button class="btn btn-success btn-sm">Add</button>
+                    <button type="submit" class="btn btn-success btn-sm">Add</button>
+                    <a href="{{ route('categories.index') }}" class="btn btn-outline-dark btn-sm">Go Back</a>
                 </div>
             </form>
         </div>

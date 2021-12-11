@@ -76,6 +76,13 @@
     <main class="py-4">
         @auth
             <div class="container">
+
+                @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-4">
                         <ul class="list-group">
@@ -83,7 +90,7 @@
                                 <a href="#">Posts</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="{{ route('categories.create') }}">Categories</a>
+                                <a href="{{ route('categories.index') }}">Categories</a>
                             </li>
                         </ul>
                     </div>

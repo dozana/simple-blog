@@ -4,7 +4,17 @@
     <div class="card card-default">
         <div class="card-header">Create Category</div>
         <div class="card-body">
-            <form action="">
+
+            @if($errors->any())
+                <ul class="list-unstyled text-danger mb-3">
+                    @foreach($errors->all() as $error)
+                        <li>- {{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+
+            <form action="{{ route('categories.store') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="title">Category Name</label>
                     <input type="text" id="title" name="title" class="form-control">

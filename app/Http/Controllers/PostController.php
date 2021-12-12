@@ -6,6 +6,7 @@ use App\Http\Requests\Posts\CreatePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -102,6 +103,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        Storage::delete($post->image);
         $post->delete();
 
         session()->flash('success', 'Post deleted successfully.');

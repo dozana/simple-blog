@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="card card-default">
-        <div class="card-header">Create Category</div>
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <h5 class="my-1">Create Category</h5>
+                <a href="{{ route('categories.index') }}" class="btn btn-outline-dark btn-sm">Go Back</a>
+            </div>
+        </div>
         <div class="card-body">
 
             @if($errors->any())
@@ -21,7 +26,6 @@
                 </div>
                 <div class="form-group mb-0">
                     <button type="submit" class="btn btn-success btn-sm">Add</button>
-                    <a href="{{ route('categories.index') }}" class="btn btn-outline-dark btn-sm">Go Back</a>
                 </div>
             </form>
         </div>

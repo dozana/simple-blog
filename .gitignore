@@ -3,7 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
-.env
+#.env
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -12,6 +12,8 @@ yarn-error.log
 
 /bower_components
 public/files/*
+public/storage
+/storage/app/public/*
 *sftp-config.json
 # Ignore directories and files starting with "!" symbol
 /\!*

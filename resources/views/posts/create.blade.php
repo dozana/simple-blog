@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="published_at">Publication Date</label>
-                        <input type="date" id="published_at" name="published_at" class="form-control">
+                        <input type="text" id="published_at" name="published_at" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">

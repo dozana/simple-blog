@@ -85,11 +85,20 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $post->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'body' => $request->body
-        ]);
+        $data = $request->only(['title','description','published_at','body']);
+
+        // check if new image
+        if($request->hasFile('image')) {
+            // upload it
+            $image = $request->image->store('posts');
+
+            // delete old one
+            Storage::delete($post->image);
+
+            $data['image'] = $image;
+        }
+
+        $post->update($data);
 
         session()->flash('success', 'Post updated successfully.');
 

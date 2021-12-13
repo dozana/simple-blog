@@ -27,7 +27,6 @@ class UpdatePostRequest extends FormRequest
             'title' => 'required|unique:posts',
             'description' => 'required',
             'body' => 'required',
-            'image' => 'required|image',
         ];
     }
 }

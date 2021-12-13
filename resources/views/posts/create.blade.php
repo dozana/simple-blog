@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card card-default">
+    <div class="card card-default mb-3">
         <div class="card-header">
             <div class="d-flex justify-content-between">
                 <h5 class="my-1">Create Post</h5>
@@ -10,13 +10,7 @@
         </div>
         <div class="card-body">
 
-            @if($errors->any())
-                <ul class="list-unstyled text-danger mb-3">
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
+            @include('partials.errors')
 
             <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf

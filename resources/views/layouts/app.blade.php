@@ -32,14 +32,11 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
 
                 </ul>
 
-                <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -72,20 +69,12 @@
             </div>
         </div>
     </nav>
-
     <main class="py-4">
         @auth
             <div class="container">
-
-                @if(session()->has('success'))
-                    <div class="alert alert-success">
-                        {{ session()->get('success') }}
-                    </div>
-                @endif
-
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-4">
-                        <ul class="list-group">
+                        <ul class="list-group mb-4">
                             <li class="list-group-item">
                                 <a href="{{ route('categories.index') }}">Categories</a>
                             </li>
@@ -93,9 +82,21 @@
                                 <a href="{{ route('posts.index') }}">Posts</a>
                             </li>
                         </ul>
+
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="{{ route('trashed-posts.index') }}">Trashed Posts</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-8">
                         @yield('content')
+
+                        @if(session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -106,7 +107,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
 @yield('scripts')
 
 </body>

@@ -1,18 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card card-default">
+    <div class="card card-default mb-3">
         <div class="card-header">Update Post</div>
         <div class="card-body">
-
-            @if($errors->any())
-                <ul class="list-unstyled text-danger mb-3">
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
-
+            @include('partials.errors')
             <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

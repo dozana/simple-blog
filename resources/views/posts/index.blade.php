@@ -30,9 +30,15 @@
                         <td class="align-middle">{{ $post->created_at }}</td>
                         <td class="text-center align-middle">
                             <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <button type="button" onclick="handleDelete({{ $post->id }})" class="btn btn-danger btn-sm">
-                                Delete
-                            </button>
+{{--                            <button type="button" onclick="handleDelete({{ $post->id }})" class="btn btn-danger btn-sm">--}}
+{{--                                Delete--}}
+{{--                            </button>--}}
+
+                            <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Trash</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -51,7 +51,7 @@ class PostController extends Controller
 
         session()->flash('success', 'Post created successfully.');
 
-        return redirect(route('posts.index'));
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -102,7 +102,7 @@ class PostController extends Controller
 
         session()->flash('success', 'Post updated successfully.');
 
-        return redirect(route('posts.index'));
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -124,7 +124,7 @@ class PostController extends Controller
 
         session()->flash('success', 'Post deleted successfully.');
 
-        return redirect(route('posts.index'));
+        return redirect()->route('posts.index');
     }
 
     /**

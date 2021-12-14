@@ -80,6 +80,9 @@
                             <li class="list-group-item">
                                 <a href="{{ route('posts.index') }}">Posts</a>
                             </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('slides.index') }}">Slides</a>
+                            </li>
                         </ul>
 
                         <ul class="list-group">

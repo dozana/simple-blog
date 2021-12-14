@@ -27,7 +27,13 @@
                             <td class="align-middle">{{ $post->created_at }}</td>
 
                             <td class="text-center align-middle">
-                                @if(!$post->trashed())
+                                @if($post->trashed())
+                                    <form action="{{ route('restore-posts', $post->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-primary btn-sm">Restore</button>
+                                    </form>
+                                @else
                                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                 @endif
 

@@ -36,6 +36,19 @@
                         <label class="custom-file-label" for="image">Choose Image</label>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" class="form-control">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}"
+                                @if(isset($post))
+                                    @if($category->id === $post->category_id) selected @endif
+                                @endif>
+                                {{ $category->title }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group mb-0">
                     <button type="submit" class="btn btn-success btn-sm">Update</button>
                     <a href="{{ route('posts.index') }}" class="btn btn-outline-dark btn-sm">Go Back</a>

@@ -29,6 +29,7 @@ class UpdatePostRequest extends FormRequest
             'title' => 'required|unique:posts,title,'.$this->post->id,
             'description' => 'required',
             'body' => 'required',
+            'category' => 'required'
         ];
     }
 }

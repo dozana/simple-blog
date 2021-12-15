@@ -39,6 +39,16 @@
                         <label class="custom-file-label" for="image">Choose Image</label>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" class="form-control">
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}">
+                            {{ $category->title }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group mb-0">
                     <button type="submit" class="btn btn-success btn-sm">Add</button>
                 </div>

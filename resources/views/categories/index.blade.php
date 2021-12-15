@@ -13,7 +13,8 @@
                 <table class="table table-borderless table-hover table-sm mb-0">
                     <thead>
                     <tr class="bg-dark text-white">
-                        <th>Title</th>
+                        <th>Category</th>
+                        <th class="text-center">Post Count</th>
                         <th>Created At</th>
                         <th class="text-center">Action</th>
                     </tr>
@@ -22,6 +23,7 @@
                     @foreach($categories as $category)
                         <tr>
                             <td>{{ $category->title }}</td>
+                            <td class="text-center">{{ $category->posts->count() }}</td>
                             <td>{{ $category->created_at }}</td>
                             <td class="text-center">
                                 <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-sm">Edit</a>

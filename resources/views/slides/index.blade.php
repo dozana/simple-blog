@@ -16,16 +16,16 @@
                             <th>Image</th>
                             <th>Title</th>
                             <th>Body</th>
-                            <th>Action</th>
+                            <th class="col-3 text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($slides as $slide)
                         <tr>
                             <td><img src="{{ asset('storage/'.$slide->image) }}" width="180" height="80" alt=""></td>
-                            <td>{{ $slide->title }}</td>
-                            <td>{{ $slide->body }}</td>
-                            <td>
+                            <td class="align-middle">{{ $slide->title }}</td>
+                            <td class="align-middle">{{ $slide->body }}</td>
+                            <td class="text-center align-middle">
                                 <a href="{{ route('slides.edit', $slide->id) }}" class="btn btn-primary btn-sm">Edit</a>
 
                                 <form action="{{ route('slides.destroy', $slide->id) }}" method="POST" class="d-inline">

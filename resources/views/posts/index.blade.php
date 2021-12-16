@@ -17,7 +17,7 @@
                             <th>Title</th>
                             <th>Created At</th>
                             <th>Category</th>
-                            <th class="text-center">Action</th>
+                            <th class="col-3 text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,7 +31,7 @@
                                     {{ $post->category->title }}
                                 </a>
                             </td>
-                            <td class="text-center align-middle">
+                            <td class="align-middle text-center">
                                 @if($post->trashed())
                                     <form action="{{ route('restore-posts', $post->id) }}" method="POST" class="d-inline">
                                         @csrf

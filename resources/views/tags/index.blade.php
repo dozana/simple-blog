@@ -14,6 +14,7 @@
                     <thead>
                     <tr class="bg-dark text-white">
                         <th>Tag</th>
+                        <th class="text-center">Posts Count</th>
                         <th class="col-3 text-center">Action</th>
                     </tr>
                     </thead>
@@ -21,6 +22,7 @@
                     @foreach($tags as $tag)
                         <tr>
                             <td>{{ $tag->title }}</td>
+                            <td class="text-center">{{ $tag->posts->count() }}</td>
                             <td class="text-center">
                                 <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                 <button type="button" onclick="handleDelete({{ $tag->id }})" class="btn btn-danger btn-sm">

@@ -49,6 +49,22 @@
                         @endforeach
                     </select>
                 </div>
+                @if($tags->count() > 0)
+                    <div class="form-group">
+                        <label for="tags">Tags</label>
+                        <select name="tags[]" id="tags" class="form-control" multiple>
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag->id }}"
+                                    @if(isset($post))
+                                        {{--@if(in_array($tag->id, $post->tags->pluck('id')->toArray())) selected @endif--}}
+                                        @if($post->hasTag($tag->id)) selected @endif
+                                    @endif>
+                                    {{ $tag->title }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
                 <div class="form-group mb-0">
                     <button type="submit" class="btn btn-success btn-sm">Update</button>
                     <a href="{{ route('posts.index') }}" class="btn btn-outline-dark btn-sm">Go Back</a>

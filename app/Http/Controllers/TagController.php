@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tag;
 use App\Http\Requests\Tags\CreateTagRequest;
 use App\Http\Requests\Tags\UpdateTagRequest;
+use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
@@ -92,9 +93,14 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(Request $request, Tag $tag)
     {
-        $tag->delete();
+        if($tag->posts->count() > 0) {
+            session()->flash('error', 'Tag cannot be deleted, because it is associated to some posts.');
+            return redirect()->back();
+        } else {
+            $tag->delete();
+        }
 
         session()->flash('success', 'Tag deleted successfully.');
 

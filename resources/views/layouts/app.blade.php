@@ -74,6 +74,12 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-4">
                         <ul class="list-group mb-4">
+                            @if(auth()->user()->isAdmin())
+                                <li class="list-group-item">
+                                    <a href="{{ route('users.index') }}">Users</a>
+                                </li>
+                            @endif
+
                             <li class="list-group-item">
                                 <a href="{{ route('categories.index') }}">Categories</a>
                             </li>

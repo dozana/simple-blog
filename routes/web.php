@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home')->name('home');
+    return view('home');
 });
 
 Auth::routes();
@@ -25,4 +25,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('trashed-posts', 'PostController@trashed')->name('trashed-posts.index');
     Route::put('restore-post/{post}', 'PostController@restore')->name('restore-posts');
     Route::resource('tags', 'TagController');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('users', 'UserController@index')->name('users.index');
 });

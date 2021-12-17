@@ -68,15 +68,25 @@
             <div class="row">
                 <div class="col-md-8 col-xl-9">
                     <div class="row gap-y">
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="#"><img class="card-img-top" src="{{ asset('img/1.jpg') }}" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-                                    <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">News</a></p>
-                                    <h5 class="mb-0"><a class="text-dark" href="#">Post Title</a></h5>
+                        @foreach($posts as $post)
+                            <div class="col-md-6">
+                                <div class="card border hover-shadow-6 mb-6 d-block">
+                                    <a href="#"><img class="card-img-top" src="{{ asset('/storage/'.$post->image) }}" alt="Card image cap"></a>
+                                    <div class="p-6 text-center">
+                                        <p>
+                                            <a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">
+                                                {{ $post->category->title }}
+                                            </a>
+                                        </p>
+                                        <h5 class="mb-0">
+                                            <a class="text-dark" href="#">
+                                                {{ $post->title }}
+                                            </a>
+                                        </h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <nav class="flexbox mt-30">
@@ -100,44 +110,29 @@
 
                         <h6 class="sidebar-title">Categories</h6>
                         <div class="row link-color-default fs-14 lh-24">
-                            <div class="col-6"><a href="#">cat 1</a></div>
-                            <div class="col-6"><a href="#">cat 2</a></div>
-                            <div class="col-6"><a href="#">cat 3</a></div>
-                            <div class="col-6"><a href="#">cat 4</a></div>
-                            <div class="col-6"><a href="#">cat 5</a></div>
-                            <div class="col-6"><a href="#">cat 6</a></div>
-                            <div class="col-6"><a href="#">cat 7</a></div>
-                            <div class="col-6"><a href="#">cat 8</a></div>
+                            @foreach($categories as $category)
+                                <div class="col-6"><a href="#">{{ $category->title }}</a></div>
+                            @endforeach
                         </div>
 
                         <hr>
 
                         <h6 class="sidebar-title">Top posts</h6>
-                        <a class="media text-default align-items-center mb-5" href="#">
-                            <img class="rounded w-65px mr-4" src="{{ asset('img/thumb/1.jpg') }}">
-                            <p class="media-body small-2 lh-4 mb-0">Lorem ipsum dolor sit amet, consectetur.</p>
-                        </a>
-                        <a class="media text-default align-items-center mb-5" href="#">
-                            <img class="rounded w-65px mr-4" src="{{ asset('img/thumb/2.jpg') }}">
-                            <p class="media-body small-2 lh-4 mb-0">Lorem ipsum dolor sit amet, consectetur.</p>
-                        </a>
-                        <a class="media text-default align-items-center mb-5" href="#">
-                            <img class="rounded w-65px mr-4" src="{{ asset('img/thumb/3.jpg') }}">
-                            <p class="media-body small-2 lh-4 mb-0">Lorem ipsum dolor sit amet, consectetur.</p>
-                        </a>
-                        <a class="media text-default align-items-center mb-5" href="#">
-                            <img class="rounded w-65px mr-4" src="{{ asset('img/thumb/4.jpg') }}">
-                            <p class="media-body small-2 lh-4 mb-0">Lorem ipsum dolor sit amet, consectetur.</p>
-                        </a>
+                        @foreach($posts as $post)
+                            <a class="media text-default align-items-center mb-5" href="#">
+                                <img class="rounded w-65px mr-4" src="{{ asset('/storage/'.$post->image) }}">
+                                <p class="media-body small-2 lh-4 mb-0">{{ $post->description }}</p>
+                            </a>
+                        @endforeach
+
 
                         <hr>
 
                         <h6 class="sidebar-title">Tags</h6>
                         <div class="gap-multiline-items-1">
-                            <a class="badge badge-secondary" href="#">Tag 1</a>
-                            <a class="badge badge-secondary" href="#">Tag 2</a>
-                            <a class="badge badge-secondary" href="#">Tag 3</a>
-                            <a class="badge badge-secondary" href="#">Tag 4</a>
+                            @foreach($tags as $tag)
+                                <a class="badge badge-secondary" href="#">{{ $tag->title }}</a>
+                            @endforeach
                         </div>
 
                         <hr>
@@ -162,8 +157,7 @@
 
             <div class="col-6 col-lg-3 text-right order-lg-last">
                 <div class="social">
-                    <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                    <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="social-git" href="https://github.com/dozana"><i class="fa fa-github"></i></a>
                 </div>
             </div>
 

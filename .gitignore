@@ -18,6 +18,9 @@ public/storage
 # Ignore directories and files starting with "!" symbol
 /\!*
 
+
+/theme
+
 # Compiled source #
 ###################
 *.com

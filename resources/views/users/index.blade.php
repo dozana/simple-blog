@@ -13,6 +13,7 @@
                 <table class="table table-borderless table-hover table-sm mb-0">
                     <thead>
                     <tr class="bg-dark text-white">
+                        <th>Image</th>
                         <th>Name</th>
                         <th>E-Mail</th>
                         <th>Created At</th>
@@ -22,14 +23,16 @@
                     <tbody>
                     @foreach($users as $user)
                         <tr>
+                            <td class="align-middle">
+                                <img src="{{ Gravatar::src($user->email) }}" width="40" height="40" alt="">
+                            </td>
                             <td class="align-middle">{{ $user->name }}</td>
                             <td class="align-middle">{{ $user->email }}</td>
                             <td class="align-middle">{{ $user->created_at }}</td>
                             <td class="align-middle text-center">
                                 @if(!$user->isAdmin())
-                                    <form action="" method="POST" class="d-inline">
+                                    <form action="{{ route('users.make-admin', $user->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        @method('DELETE')
                                         <button type="submit" class="btn btn-success btn-sm">
                                             Make Admin
                                         </button>

@@ -10,7 +10,7 @@ Auth::routes();
 
 Route::group(['namespace' => 'Site', 'middleware' => 'web'], function () {
     Route::get('/', 'SiteHomeController@index')->name('site.home');
-    Route::get('/posts/{post}', 'SitePostsController@show');
+    Route::get('/posts/{post}', 'SitePostsController@show')->name('site.posts.show');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth']], function () {

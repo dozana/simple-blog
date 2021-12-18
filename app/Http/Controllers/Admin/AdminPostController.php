@@ -57,7 +57,8 @@ class AdminPostController extends Controller
             'body' => $request->body,
             'image' => $image,
             'published_at' => $request->published_at,
-            'category_id' => $request->category
+            'category_id' => $request->category,
+            'user_id' => auth()->user()->id
         ]);
 
         if ($request->tags) {

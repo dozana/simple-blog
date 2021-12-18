@@ -8,8 +8,6 @@
 
 @include('site.partials.nav')
 
-@include('site.partials.header')
-
 <main class="main-content">
     @yield('content')
 </main>

@@ -29,6 +29,9 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('site.home') }}">
+                                Go Public
+                            </a>
                             <a class="dropdown-item" href="{{ route('users.edit-profile') }}">
                                 My Profile
                             </a>

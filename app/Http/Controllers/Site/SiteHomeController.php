@@ -18,7 +18,7 @@ class SiteHomeController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        $posts = Post::all();
+        $posts = Post::simplePaginate(2);
 
         return view('site.home')
             ->with('categories', $categories)

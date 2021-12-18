@@ -1,6 +1,6 @@
 <ul class="list-group mb-4">
     <li class="list-group-item">
-        <a href="{{ route('admin.dashboard.index') }}">Dashboard</a>
+        <a href="{{ route('dashboard.index') }}">Dashboard</a>
     </li>
     <li class="list-group-item">
         <a href="{{ route('categories.index') }}">Categories</a>
@@ -20,7 +20,7 @@
         </li>
     @endif
 </ul>
-<ul class="list-group">
+<ul class="list-group mb-3">
     <li class="list-group-item">
         <a href="{{ route('trashed-posts.index') }}">Trashed Posts</a>
     </li>

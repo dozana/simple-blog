@@ -14,7 +14,7 @@ Route::group(['namespace' => 'Site', 'middleware' => 'web'], function () {
 });
 
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth']], function () {
-    Route::get('/', 'AdminDashboardController@index')->name('admin.dashboard.index');
+    Route::get('/', 'AdminDashboardController@index')->name('dashboard.index');
     Route::resource('categories', 'AdminCategoryController');
     Route::resource('slides', 'AdminSlideController');
     Route::resource('posts', 'AdminPostController');

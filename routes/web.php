@@ -10,7 +10,9 @@ Auth::routes();
 
 Route::group(['namespace' => 'Site', 'middleware' => 'web'], function () {
     Route::get('/', 'SiteHomeController@index')->name('site.home');
-    Route::get('/posts/{post}', 'SitePostsController@show')->name('site.posts.show');
+    Route::get('posts/{post}', 'SitePostsController@show')->name('site.posts.show');
+    Route::get('categories/{category}', 'SitePostsController@category')->name('site.posts.category');
+    Route::get('tags/{tag}', 'SitePostsController@tag')->name('site.posts.tag');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth']], function () {

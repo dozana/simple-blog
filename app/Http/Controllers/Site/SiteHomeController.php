@@ -20,6 +20,15 @@ class SiteHomeController extends Controller
         $tags = Tag::all();
         $posts = Post::simplePaginate(2);
 
+
+        $search = \request()->query('search');
+
+        if($search) {
+            $posts = Post::where('title','LIKE',"%{$search}%")->simplePaginate(3);
+        } else {
+            $posts = Post::simplePaginate(2);
+        }
+
         return view('site.home')
             ->with('categories', $categories)
             ->with('tags', $tags)

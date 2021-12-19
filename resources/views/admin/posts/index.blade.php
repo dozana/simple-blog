@@ -15,7 +15,7 @@
                         <tr class="bg-dark text-white">
                             <th>Image</th>
                             <th>Title</th>
-                            <th>Created At</th>
+                            <th>Published</th>
                             <th>Category</th>
                             <th class="col-3 text-center">Action</th>
                         </tr>
@@ -25,7 +25,7 @@
                         <tr>
                             <td class="align-middle"><img src="{{ asset('/storage/'.$post->image) }}" width="60" height="60" alt=""></td>
                             <td class="align-middle">{{ $post->title }}</td>
-                            <td class="align-middle">{{ $post->created_at }}</td>
+                            <td class="align-middle">{{ $post->published_at }}</td>
                             <td class="align-middle">
                                 <a href="{{ route('categories.edit', $post->category->id) }}">
                                     {{ $post->category->title }}

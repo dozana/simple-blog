@@ -6,7 +6,12 @@
 
             <div class="text-center mt-8">
                 <h2>{{ $post->title }}</h2>
-                <p>By {{ $post->user->name }}, Published at {{ $post->created_at }}, <a href="#">{{ $post->category->title }}</a></p>
+                <ul class="list-unstyled">
+                    <li>Author: {{ $post->user->name }}</li>
+                    <li>Published at {{ $post->published_at }}</li>
+                    <li>Category: {{ $post->category->title }}</li>
+                </ul>
+
                 <img src="{{ Gravatar::src($post->user->email) }}" alt="">
             </div>
 
@@ -20,7 +25,7 @@
 
                     <div class="gap-xy-2 mt-6">
                         @foreach($post->tags as $tag)
-                            <a class="badge badge-pill badge-secondary" href="#">{{ $tag->title }}</a>
+                            <a class="badge badge-pill badge-secondary" href="{{ route('site.posts.tag', $tag->id) }}">{{ $tag->title }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -48,39 +53,10 @@
                             </div>
                         </div>
 
-
-
-                        <div class="media">
-                            <img class="avatar avatar-sm mr-4" src="../assets/img/avatar/2.jpg" alt="...">
-
-                            <div class="media-body">
-                                <div class="small-1">
-                                    <strong>Hossein Shams</strong>
-                                    <time class="ml-4 opacity-70 small-3" datetime="2018-07-14 20:00">6 hours ago</time>
-                                </div>
-                                <p class="small-2 mb-0">Was my suppliers, has concept how few everything task music.</p>
-                            </div>
-                        </div>
-
-
-
-                        <div class="media">
-                            <img class="avatar avatar-sm mr-4" src="../assets/img/avatar/3.jpg" alt="...">
-
-                            <div class="media-body">
-                                <div class="small-1">
-                                    <strong>Sarah Hanks</strong>
-                                    <time class="ml-4 opacity-70 small-3" datetime="2018-07-14 20:00">Yesterday</time>
-                                </div>
-                                <p class="small-2 mb-0">Been me have the no a themselves, agency, it that if conduct, posts, another who to assistant done rattling forth there the customary imitation.</p>
-                            </div>
-                        </div>
-
                     </div>
 
 
                     <hr>
-
 
                     <form action="#" method="POST">
 

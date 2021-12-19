@@ -10,21 +10,17 @@ use App\Http\Controllers\Controller;
 
 class SitePostsController extends Controller
 {
-    /**
-     * Show single post
-     */
     public function show(Post $post)
     {
         return view('site.posts.show')->with('post', $post);
     }
 
-    public function category($id)
+    public function category(Category $category)
     {
-        $search = \request()->query('search');
-        $category = Category::findOrFail($id);
         $categories = Category::all();
         $tags = Tag::all();
 
+        $search = \request()->query('search');
         if($search) {
             $posts = $category->posts()->where('title', 'LIKE', "%{$search}%")->simplePaginate(3);
         } else {
@@ -38,9 +34,8 @@ class SitePostsController extends Controller
             ->with('posts', $posts);
     }
 
-    public function tag($id)
+    public function tag(Tag $tag)
     {
-        $tag = Category::findOrFail($id);
         $categories = Category::all();
         $posts = $tag->posts()->simplePaginate(3);
         $tags = Tag::all();

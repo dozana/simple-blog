@@ -20,17 +20,16 @@
 
     <hr>
 
-    <h6 class="sidebar-title">Top posts</h6>
-    @foreach($topPosts as $topPost)
-        <a class="media text-default align-items-center mb-5" href="{{ route('site.posts.show', $topPost->id) }}">
-            <img class="rounded w-65px mr-4" src="{{ asset('/storage/'.$topPost->image) }}">
-            <p class="media-body small-2 lh-4 mb-0">
-                {{ str_limit($topPost->description, 50, '...') }}
-            </p>
-        </a>
-    @endforeach
-
-    <hr>
+{{--    <h6 class="sidebar-title">Top posts</h6>--}}
+{{--    @foreach($topPosts as $topPost)--}}
+{{--        <a class="media text-default align-items-center mb-5" href="{{ route('site.posts.show', $topPost->id) }}">--}}
+{{--            <img class="rounded w-65px mr-4" src="{{ asset('/storage/'.$topPost->image) }}">--}}
+{{--            <p class="media-body small-2 lh-4 mb-0">--}}
+{{--                {{ str_limit($topPost->description, 50, '...') }}--}}
+{{--            </p>--}}
+{{--        </a>--}}
+{{--    @endforeach--}}
+{{--    <hr>--}}
 
     <h6 class="sidebar-title">Tags</h6>
     <div class="gap-multiline-items-1">

@@ -19,6 +19,10 @@
             <a href="{{ route('users.index') }}">Users</a>
         </li>
     @endif
+
+    <li class="list-group-item">
+        <a href="{{ route('scraper.index') }}">Scraper</a>
+    </li>
 </ul>
 <ul class="list-group mb-3">
     <li class="list-group-item">

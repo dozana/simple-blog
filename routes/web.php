@@ -23,6 +23,9 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth'
     Route::get('trashed-posts', 'AdminPostController@trashed')->name('trashed-posts.index');
     Route::put('restore-post/{post}', 'AdminPostController@restore')->name('restore-posts');
     Route::resource('tags', 'AdminTagController');
+
+    // Scraper
+    Route::get('scraper', 'AdminScraperController@index')->name('scraper.index');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

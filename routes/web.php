@@ -26,6 +26,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth'
 
     // Scraper
     Route::get('scraper', 'AdminScraperController@index')->name('scraper.index');
+    Route::get('bbc-news', 'AdminScraperController@bbcNews')->name('bbc-news');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

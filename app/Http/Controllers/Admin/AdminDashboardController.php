@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Post;
+use App\Product;
 use App\Slide;
 use App\Tag;
 use App\User;
@@ -35,6 +36,7 @@ class AdminDashboardController extends Controller
         $tags = Tag::all()->count();
         $slides = Slide::all()->count();
         $users = User::all()->count();
+        $products = Product::all()->count();
 
         return view('admin.dashboard.index')
             ->with('categories', $categories)
@@ -42,6 +44,7 @@ class AdminDashboardController extends Controller
             ->with('trashedPosts', $trashedPosts)
             ->with('tags', $tags)
             ->with('slides', $slides)
-            ->with('users', $users);
+            ->with('users', $users)
+            ->with('products', $products);
     }
 }

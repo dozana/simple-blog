@@ -32,6 +32,9 @@
                             <a class="dropdown-item" href="{{ route('site.home') }}">
                                 Go Public
                             </a>
+                            <a class="dropdown-item" href="{{ route('dashboard.index') }}">
+                                My Dashboard
+                            </a>
                             <a class="dropdown-item" href="{{ route('users.edit-profile') }}">
                                 My Profile
                             </a>

@@ -62,5 +62,15 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="card text-center mb-3">
+                <div class="card-header">
+                    Products
+                </div>
+                <div class="card-body">
+                    <h1 class="mb-0"><a href="{{ route('products.index') }}">{{ $products }}</a></h1>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

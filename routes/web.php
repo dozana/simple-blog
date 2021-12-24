@@ -16,6 +16,7 @@ Route::group(['namespace' => 'Site', 'middleware' => 'web'], function () {
 });
 
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth']], function () {
+    // Blog
     Route::get('/', 'AdminDashboardController@index')->name('dashboard.index');
     Route::resource('categories', 'AdminCategoryController');
     Route::resource('slides', 'AdminSlideController');
@@ -24,10 +25,15 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth'
     Route::put('restore-post/{post}', 'AdminPostController@restore')->name('restore-posts');
     Route::resource('tags', 'AdminTagController');
 
+    // Online Shop
+    Route::resource('products', 'AdminProductController');
+
     // Scraper
     Route::get('corona-virus', 'AdminScraperController@coronaVirus')->name('corona-virus');
 
+    // Ajax
     Route::resource('links', 'AdminLinkController');
+
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

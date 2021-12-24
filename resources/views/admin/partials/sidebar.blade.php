@@ -12,20 +12,23 @@
         <a href="{{ route('tags.index') }}">Tags</a>
     </li>
     <li class="list-group-item">
-        <a href="{{ route('slides.index') }}">Slides</a>
+        <a href="{{ route('trashed-posts.index') }}">Trashed Posts</a>
     </li>
     @if(auth()->user()->isAdmin())
         <li class="list-group-item">
             <a href="{{ route('users.index') }}">Users</a>
         </li>
     @endif
-
-    <li class="list-group-item">
-        <a href="{{ route('scraper.index') }}">Scraper</a>
-    </li>
 </ul>
+
 <ul class="list-group mb-3">
     <li class="list-group-item">
-        <a href="{{ route('trashed-posts.index') }}">Trashed Posts</a>
+        <a href="{{ route('links.index') }}">Links</a>
+    </li>
+    <li class="list-group-item">
+        <a href="{{ route('corona-virus') }}">Scrap Website</a>
     </li>
 </ul>
+
+
+

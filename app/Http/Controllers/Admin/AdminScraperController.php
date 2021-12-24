@@ -11,7 +11,7 @@ class AdminScraperController extends Controller
 {
     private $results = [];
 
-    public function index()
+    public function coronaVirus()
     {
         $client = new Client();
         $url = 'https://www.worldometers.info/coronavirus/';
@@ -25,14 +25,6 @@ class AdminScraperController extends Controller
 
         $data = $this->results;
 
-        return view('admin.scraper.index')->with('data', $data);
-    }
-
-    public function bbcNews() {
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://www.worldometers.info/coronavirus/');
-        $crawler->filter('.block-link__overlay-link')->each(function ($node) {
-            print $node->text()."\n";
-        });
+        return view('admin.scraper.corona-virus')->with('data', $data);
     }
 }

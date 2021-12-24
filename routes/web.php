@@ -25,8 +25,9 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth'
     Route::resource('tags', 'AdminTagController');
 
     // Scraper
-    Route::get('scraper', 'AdminScraperController@index')->name('scraper.index');
-    Route::get('bbc-news', 'AdminScraperController@bbcNews')->name('bbc-news');
+    Route::get('corona-virus', 'AdminScraperController@coronaVirus')->name('corona-virus');
+
+    Route::resource('links', 'AdminLinkController');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

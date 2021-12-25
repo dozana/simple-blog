@@ -43,6 +43,12 @@
 @endif
 
 <ul class="list-group mb-3">
+    <li class="list-group-item text-center active" aria-current="true">
+        Features
+    </li>
+    <li class="list-group-item">
+        <a href="{{ route('slides.index') }}">Slides</a>
+    </li>
     <li class="list-group-item">
         <a href="{{ route('links.index') }}">Links</a>
     </li>

@@ -5,7 +5,6 @@
 </form>
 
 <ul class="list-group mb-4">
-    <li class="list-group-item active">Post Categories</li>
     @foreach($categories as $category)
     <li class="list-group-item">
         <a href="{{ route('site.posts.category', $category->id) }}">{{ $category->title }}</a>

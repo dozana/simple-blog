@@ -15,6 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('site.posts.index') }}">Blog</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('site.products.index') }}">Shop</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">

@@ -9,7 +9,10 @@
 Auth::routes();
 
 Route::group(['namespace' => 'Site', 'middleware' => 'web'], function () {
-    Route::get('/', 'SiteHomeController@index')->name('site.home');
+    Route::get('/', 'SiteWelcomeController@index')->name('site.welcome');
+//    Route::resource('posts','SiteBlogController');
+
+    Route::get('posts', 'SitePostsController@index')->name('site.posts.index');
     Route::get('posts/{post}', 'SitePostsController@show')->name('site.posts.show');
     Route::get('categories/{category}', 'SitePostsController@category')->name('site.posts.category');
     Route::get('tags/{tag}', 'SitePostsController@tag')->name('site.posts.tag');

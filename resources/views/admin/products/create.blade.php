@@ -17,11 +17,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="title">Title</label>
-                        <input type="text" id="title" name="title" class="form-control">
+                        <input type="text" id="title" name="title" class="form-control" value="{{ old('title') }}">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="price">Price</label>
-                        <input type="text" id="price" name="price" class="form-control">
+                        <input type="text" id="price" name="price" class="form-control" value="{{ old('price') }}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <input id="description" type="hidden" name="description">
+                    <input id="description" type="hidden" name="description" value="{{ old('description') }}">
                     <trix-editor input="description"></trix-editor>
                 </div>
                 <div class="form-group mb-0">

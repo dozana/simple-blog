@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
     <div class="container">
         <a class="navbar-brand" href="{{ route('dashboard.index') }}">
             {{ config('app.name', 'ADMIN') }}
@@ -9,7 +9,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('site.welcome') }}">{{ __('Public') }}</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
@@ -29,9 +31,6 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('site.home') }}">
-                                Go Public
-                            </a>
                             <a class="dropdown-item" href="{{ route('dashboard.index') }}">
                                 My Dashboard
                             </a>

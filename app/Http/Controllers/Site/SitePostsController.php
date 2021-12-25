@@ -10,6 +10,28 @@ use App\Http\Controllers\Controller;
 
 class SitePostsController extends Controller
 {
+    public function index()
+    {
+        $categories = Category::all();
+        $tags = Tag::all();
+        $posts = Post::simplePaginate(2);
+        $topPosts = Post::limit(3)->get();
+
+        $search = \request()->query('search');
+
+        if($search) {
+            $posts = Post::where('title','LIKE',"%{$search}%")->simplePaginate(3);
+        } else {
+            $posts = Post::simplePaginate(1);
+        }
+
+        return view('site.posts.index')
+            ->with('categories', $categories)
+            ->with('tags', $tags)
+            ->with('posts', $posts)
+            ->with('topPosts', $topPosts);
+    }
+
     public function show(Post $post)
     {
         return view('site.posts.show')->with('post', $post);

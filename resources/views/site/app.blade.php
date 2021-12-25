@@ -3,13 +3,14 @@
 <head>
     @include('site.partials.head')
 </head>
-
 <body>
 
 @include('site.partials.nav')
 
 <main class="main-content">
-    @yield('content')
+    <section class="container">
+        @yield('content')
+    </section>
 </main>
 
 @include('site.partials.footer')

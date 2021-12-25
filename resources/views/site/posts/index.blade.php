@@ -6,7 +6,6 @@
             @include('site.posts.sidebar')
         </div>
         <div class="col-lg-8 col-md-8 col-xl-9">
-
             @forelse($posts as $post)
                 <div class="card mb-3">
                     <div class="card-header">

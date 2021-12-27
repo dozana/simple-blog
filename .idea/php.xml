@@ -110,6 +110,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
       <path value="$PROJECT_DIR$/vendor/fabpot/goutte" />
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/bumbummen99/shoppingcart" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

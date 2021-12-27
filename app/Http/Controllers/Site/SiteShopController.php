@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SiteProductController extends Controller
+class SiteShopController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class SiteProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(3);
-
-        return view('site.products.index')->with('products', $products);
+        //
     }
 
     /**
@@ -47,9 +44,9 @@ class SiteProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        return view('site.products.show')->with('product', $product);
+        //
     }
 
     /**

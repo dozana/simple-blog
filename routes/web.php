@@ -20,6 +20,7 @@ Route::group(['namespace' => 'Site', 'middleware' => 'web'], function () {
 
     // Shop
     Route::resource('products', 'SiteProductController',['as' => 'site']);
+    Route::resource('shops', 'SiteShopController',['as' => 'site']);
 });
 
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth']], function () {

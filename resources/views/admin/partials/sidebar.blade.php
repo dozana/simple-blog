@@ -1,6 +1,6 @@
 <ul class="list-group mb-4">
     <li class="list-group-item">
-        <a href="{{ route('dashboard.index') }}">Dashboard</a>
+        <a href="{{ route('admin.dashboard.index') }}">Dashboard</a>
     </li>
 </ul>
 
@@ -9,16 +9,19 @@
         Web Blog
     </li>
     <li class="list-group-item">
-        <a href="{{ route('posts.index') }}">All Posts</a>
+        <a href="{{ route('admin.slides.index') }}">Slides</a>
     </li>
     <li class="list-group-item">
-        <a href="{{ route('categories.index') }}">Post Categories</a>
+        <a href="{{ route('admin.categories.index') }}">Categories</a>
     </li>
     <li class="list-group-item">
-        <a href="{{ route('tags.index') }}">Post Tags</a>
+        <a href="{{ route('admin.tags.index') }}">Tags</a>
     </li>
     <li class="list-group-item">
-        <a href="{{ route('trashed-posts.index') }}">Trashed Posts</a>
+        <a href="{{ route('admin.posts.index') }}">Posts</a>
+    </li>
+    <li class="list-group-item">
+        <a href="{{ route('admin.trashed-posts.index') }}">Trashed</a>
     </li>
 </ul>
 
@@ -27,7 +30,7 @@
         Web Shop
     </li>
     <li class="list-group-item">
-        <a href="{{ route('products.index') }}">Products</a>
+        <a href="{{ route('admin.products.index') }}">Products</a>
     </li>
 </ul>
 
@@ -37,7 +40,7 @@
         User Management
     </li>
     <li class="list-group-item">
-        <a href="{{ route('users.index') }}">Users</a>
+        <a href="{{ route('admin.users.index') }}">Users</a>
     </li>
 </ul>
 @endif
@@ -47,13 +50,10 @@
         Features
     </li>
     <li class="list-group-item">
-        <a href="{{ route('slides.index') }}">Slides</a>
+        <a href="{{ route('admin.links.index') }}">Links</a>
     </li>
     <li class="list-group-item">
-        <a href="{{ route('links.index') }}">Links</a>
-    </li>
-    <li class="list-group-item">
-        <a href="{{ route('corona-virus') }}">Scrap Website</a>
+        <a href="{{ route('admin.corona-virus') }}">Scrap Website</a>
     </li>
 </ul>
 

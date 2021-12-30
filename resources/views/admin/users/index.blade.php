@@ -28,7 +28,7 @@
                             <td class="align-middle">{{ $user->created_at }}</td>
                             <td class="align-middle text-center">
                                 @if(!$user->isAdmin())
-                                    <form action="{{ route('users.make-admin', $user->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('admin.users.make-admin', $user->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         <button type="submit" class="btn btn-success btn-sm">
                                             Make Admin

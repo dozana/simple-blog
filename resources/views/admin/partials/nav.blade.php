@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('dashboard.index') }}">
-            {{ config('app.name', 'ADMIN') }}
+        <a class="navbar-brand" href="{{ route('admin.dashboard.index') }}">
+            BACK
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('site.welcome') }}">{{ __('Public') }}</a>
+                    <a class="nav-link" href="{{ route('site.home') }}">{{ __('Public') }}</a>
                 </li>
             </ul>
 
@@ -31,10 +31,10 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('dashboard.index') }}">
+                            <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">
                                 My Dashboard
                             </a>
-                            <a class="dropdown-item" href="{{ route('users.edit-profile') }}">
+                            <a class="dropdown-item" href="{{ route('admin.users.edit-profile') }}">
                                 My Profile
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

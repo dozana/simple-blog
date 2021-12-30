@@ -8,7 +8,7 @@
                     Categories
                 </div>
                 <div class="card-body">
-                    <h1 class="mb-0"><a href="{{ route('categories.index') }}">{{ $categories }}</a></h1>
+                    <h1 class="mb-0"><a href="{{ route('admin.categories.index') }}">{{ $categories }}</a></h1>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     Posts
                 </div>
                 <div class="card-body">
-                    <h1 class="mb-0"><a href="{{ route('posts.index') }}">{{ $posts }}</a></h1>
+                    <h1 class="mb-0"><a href="{{ route('admin.posts.index') }}">{{ $posts }}</a></h1>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     Trashed Posts
                 </div>
                 <div class="card-body">
-                    <h1 class="mb-0"><a href="{{ route('trashed-posts.index') }}">{{ $trashedPosts }}</a></h1>
+                    <h1 class="mb-0"><a href="{{ route('admin.trashed-posts.index') }}">{{ $trashedPosts }}</a></h1>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                     Tags
                 </div>
                 <div class="card-body">
-                    <h1 class="mb-0"><a href="{{ route('tags.index') }}">{{ $tags }}</a></h1>
+                    <h1 class="mb-0"><a href="{{ route('admin.tags.index') }}">{{ $tags }}</a></h1>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                     Slides
                 </div>
                 <div class="card-body">
-                    <h1 class="mb-0"><a href="{{ route('slides.index') }}">{{ $slides }}</a></h1>
+                    <h1 class="mb-0"><a href="{{ route('admin.slides.index') }}">{{ $slides }}</a></h1>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                     All Users
                 </div>
                 <div class="card-body">
-                    <h1 class="mb-0"><a href="{{ route('users.index') }}">{{ $users }}</a></h1>
+                    <h1 class="mb-0"><a href="{{ route('admin.users.index') }}">{{ $users }}</a></h1>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                     Products
                 </div>
                 <div class="card-body">
-                    <h1 class="mb-0"><a href="{{ route('products.index') }}">{{ $products }}</a></h1>
+                    <h1 class="mb-0"><a href="{{ route('admin.products.index') }}">{{ $products }}</a></h1>
                 </div>
             </div>
         </div>

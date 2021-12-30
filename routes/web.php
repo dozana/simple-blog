@@ -8,43 +8,56 @@
 
 Auth::routes();
 
-Route::group(['namespace' => 'Site', 'middleware' => 'web'], function () {
-    // Welcome Page
-    Route::get('/', 'SiteWelcomeController@index')->name('site.welcome');
+Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
 
-    // Blog
-    Route::get('posts', 'SitePostsController@index')->name('site.posts.index');
-    Route::get('posts/{post}', 'SitePostsController@show')->name('site.posts.show');
-    Route::get('categories/{category}', 'SitePostsController@category')->name('site.posts.category');
-    Route::get('tags/{tag}', 'SitePostsController@tag')->name('site.posts.tag');
+    Route::get('/', 'DashboardController@index')->name('dashboard.index');
 
-    // Shop
-    Route::resource('products', 'SiteProductController',['as' => 'site']);
-    Route::resource('shops', 'SiteShopController',['as' => 'site']);
+    Route::group(['namespace' => 'Blog'], function () {
+        Route::resource('categories', 'CategoryController');
+        Route::resource('tags', 'TagController');
+        Route::resource('posts', 'PostController');
+        Route::get('trashed-posts', 'PostController@trashed')->name('trashed-posts.index');
+        Route::put('restore-post/{post}', 'PostController@restore')->name('restore-posts');
+        Route::resource('slides', 'SlideController');
+    });
+
+    Route::group(['namespace' => 'Shop'], function () {
+        Route::resource('products', 'ProductController');
+    });
+
+    Route::group(['namespace' => 'Link'], function () {
+        Route::resource('links', 'LinkController');
+    });
+
+    Route::group(['namespace' => 'Scrap'], function () {
+        Route::get('corona-virus', 'ScraperController@coronaVirus')->name('corona-virus');
+    });
+
+    Route::group(['namespace' => 'User', 'middleware' => ['admin']], function () {
+        Route::get('users', 'UserController@index')->name('users.index');
+        Route::get('users/profile', 'UserController@edit')->name('users.edit-profile');
+        Route::put('users/profile', 'UserController@update')->name('users.update-profile');
+        Route::post('users/{user}/make-admin', 'UserController@makeAdmin')->name('users.make-admin');
+    });
+
 });
 
-Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware' => ['auth']], function () {
-    // Blog
-    Route::get('/', 'AdminDashboardController@index')->name('dashboard.index');
-    Route::resource('categories', 'AdminCategoryController');
-    Route::resource('posts', 'AdminPostController');
-    Route::get('trashed-posts', 'AdminPostController@trashed')->name('trashed-posts.index');
-    Route::put('restore-post/{post}', 'AdminPostController@restore')->name('restore-posts');
-    Route::resource('tags', 'AdminTagController');
 
-    // Shop
-    Route::resource('products', 'AdminProductController');
+Route::group(['namespace' => 'Site', 'as' => 'site.', 'middleware' => 'web'], function () {
 
-    // Features
-    Route::resource('slides', 'AdminSlideController');
-    Route::get('corona-virus', 'AdminScraperController@coronaVirus')->name('corona-virus');
-    Route::resource('links', 'AdminLinkController');
-});
+    Route::get('/', 'HomeController@index')->name('home');
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    // User Management
-    Route::get('users', 'Admin\AdminUserController@index')->name('users.index');
-    Route::get('users/profile', 'Admin\AdminUserController@edit')->name('users.edit-profile');
-    Route::put('users/profile', 'Admin\AdminUserController@update')->name('users.update-profile');
-    Route::post('users/{user}/make-admin', 'Admin\AdminUserController@makeAdmin')->name('users.make-admin');
+    Route::group(['namespace' => 'Blog', 'prefix'=>'blog'], function () {
+        Route::get('posts', 'PostController@index')->name('posts.index');
+        Route::get('posts/{post}', 'PostController@show')->name('posts.show');
+        Route::get('categories/{category}', 'PostController@category')->name('posts.category');
+        Route::get('tags/{tag}', 'PostController@tag')->name('posts.tag');
+    });
+
+    Route::group(['namespace' => 'Shop', 'prefix'=>'shop'], function () {
+        Route::resource('products', 'ProductController');
+        Route::get('add-to-cart/{id}', 'ProductController@addToCart')->name('products.addToCart');
+        Route::get('shopping-cart', 'ProductController@shoppingCart')->name('products.shoppingCart');
+    });
+
 });

@@ -53,6 +53,7 @@ class ProductController extends IndexController
     public function show($id)
     {
         $product = Product::findOrFail($id);
+
         return view('site.shop.products.show')->with('product', $product);
     }
 
@@ -101,7 +102,7 @@ class ProductController extends IndexController
         $request->session()->put('cart', $cart);
         //dd($request->session()->get('cart'));
 
-        return redirect()->route('products.index');
+        return redirect()->route('site.products.index');
     }
 
     public function shoppingCart()
@@ -116,5 +117,19 @@ class ProductController extends IndexController
         return view('site.shop.products.shopping-cart')
             ->with('products', $cart->items)
             ->with('totalPrice', $cart->totalPrice);
+    }
+
+    public function checkout()
+    {
+        if(!Session::has('cart')) {
+            return view('site.shop.products.shopping-cart');
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $total = $cart->totalPrice;
+
+        return view('site.shop.products.checkout')->with('total', $total);
+
     }
 }

@@ -58,6 +58,8 @@ Route::group(['namespace' => 'Site', 'as' => 'site.', 'middleware' => 'web'], fu
         Route::resource('products', 'ProductController');
         Route::get('add-to-cart/{id}', 'ProductController@addToCart')->name('products.addToCart');
         Route::get('shopping-cart', 'ProductController@shoppingCart')->name('products.shoppingCart');
+        Route::get('checkout', 'ProductController@checkout')->name('products.checkout');
+        Route::post('checkout', 'ProductController@postCheckout')->name('products.checkout');
     });
 
 });

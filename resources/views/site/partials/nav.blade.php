@@ -27,9 +27,11 @@
                             <a href="{{ route('site.products.shoppingCart') }}" class="nav-link">
                                 <i class="fas fa-shopping-cart"></i> Basket
 
-                                <sup class="badge badge-light ml-2">
-                                    {{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}
-                                </sup>
+                                @if(Session::has('cart'))
+                                    <sup class="badge badge-light ml-2">
+                                        {{ Session::get('cart')->totalQty }}
+                                    </sup>
+                                @endif
                             </a>
                         </li>
                         <li class="nav-item">

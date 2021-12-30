@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('site.app')
 
 @section('content')
 <div class="card">

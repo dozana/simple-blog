@@ -9,6 +9,10 @@
 
             <p>Your Total: ${{ $total }}</p>
 
+            <div id="chargeError" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }}">
+                {{ Session::get('error') }}
+            </div>
+
             <form action="{{ route('site.products.checkout') }}" method="post" id="checkoutForm">
                 @csrf
                 <div class="row">
@@ -55,4 +59,9 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ asset('js/checkout.js') }}"></script>
 @endsection

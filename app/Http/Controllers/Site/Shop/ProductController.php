@@ -8,6 +8,8 @@ use App\Http\Controllers\Site\IndexController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Stripe\Charge;
+use Stripe\Stripe;
 
 class ProductController extends IndexController
 {
@@ -130,6 +132,31 @@ class ProductController extends IndexController
         $total = $cart->totalPrice;
 
         return view('site.shop.products.checkout')->with('total', $total);
+    }
 
+    public function postCheckout(Request $request)
+    {
+        if(!Session::has('cart')) {
+            return redirect()->route('site.products.shoppingCart');
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+
+        Stripe::setApiKey('sk_test_51KCimBH6eFMZkh3Tr9ySFfTCVXU74VXxgX1jDjLZO9Czw5dXztqQRNYdMCCQDEzUt4W3ve0mHSOJ3SKEeQcagHpV00AhdX5Wx1');
+
+        try {
+            Charge::create([
+                "amount" => $cart->totalPrice * 100,
+                "currency" => "usd",
+                "source" => $request->input('stripeToken'),
+                "description" => 400,
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->route('site.products.checkout')->with('error', $e->getMessage());
+        }
+
+        Session::forget('cart');
+        return redirect()->route('site.products.index')->with('success', 'Successfully purchased products!');
     }
 }

@@ -51,6 +51,6 @@
             </div>
         </div>
     @else
-        No items in shopping cart, please <a href="{{ route('products.index') }}">add</a>
+        No items in shopping cart, please <a href="{{ route('site.products.index') }}">add</a>
     @endif
 @endsection

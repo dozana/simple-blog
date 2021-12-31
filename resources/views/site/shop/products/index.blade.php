@@ -5,6 +5,17 @@
 @endsection
 
 @section('content')
+
+    @if(Session::has('success'))
+    <div class="row">
+        <div class="col-md-12">
+            <div id="chargeMessage" class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        </div>
+    </div>
+    @endif
+
     @foreach($products->chunk(4) as $productChunk)
     <div class="row">
         @forelse($productChunk as $product)

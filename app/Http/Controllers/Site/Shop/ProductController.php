@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Site\Shop;
 
 use App\Cart;
+use App\Order;
 use App\Product;
 use App\Http\Controllers\Site\IndexController;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Stripe\Charge;
 use Stripe\Stripe;
@@ -143,18 +145,26 @@ class ProductController extends IndexController
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
-        Stripe::setApiKey('sk_test_51KCimBH6eFMZkh3Tr9ySFfTCVXU74VXxgX1jDjLZO9Czw5dXztqQRNYdMCCQDEzUt4W3ve0mHSOJ3SKEeQcagHpV00AhdX5Wx1');
+        // Stripe
+//        Stripe::setApiKey('sk_test_51KCimBH6eFMZkh3Tr9ySFfTCVXU74VXxgX1jDjLZO9Czw5dXztqQRNYdMCCQDEzUt4W3ve0mHSOJ3SKEeQcagHpV00AhdX5Wx1');
+//        try {
+//            Charge::create([
+//                "amount" => $cart->totalPrice * 100,
+//                "currency" => "usd",
+//                "source" => $request->input('stripeToken'),
+//                "description" => 400,
+//            ]);
+//        } catch (\Exception $e) {
+//            return redirect()->route('site.products.checkout')->with('error', $e->getMessage());
+//        }
 
-        try {
-            Charge::create([
-                "amount" => $cart->totalPrice * 100,
-                "currency" => "usd",
-                "source" => $request->input('stripeToken'),
-                "description" => 400,
-            ]);
-        } catch (\Exception $e) {
-            return redirect()->route('site.products.checkout')->with('error', $e->getMessage());
-        }
+        $order = new Order();
+        $order->cart = serialize($cart);
+        $order->address = $request->input('address');
+        $order->name = $request->input('name');
+        $order->payment_id = substr(str_shuffle("0123456789"), 0, 10);
+
+        Auth::user()->orders()->save($order);
 
         Session::forget('cart');
         return redirect()->route('site.products.index')->with('success', 'Successfully purchased products!');
